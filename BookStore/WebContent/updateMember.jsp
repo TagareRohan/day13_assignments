@@ -12,7 +12,6 @@
 <body>
 
 
-
 <form action="${pageContext.request.contextPath}/BookServlet" method="post">
 
 <label>Current Member Id</label>
