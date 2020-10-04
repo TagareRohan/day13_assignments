@@ -213,13 +213,53 @@ public class BookStore implements BookNewOperations {
 	@Override
 	public List<Member> findAscendingPenalty() {
 		// TODO Auto-generated method stub
-		return null;
+		
+		
+		String sql="select * from members";
+		
+		PreparedStatement pstmt = null;
+		
+		try
+		{
+			pstmt=this.derbyConnection.prepareStatement(sql);
+			ResultSet result = pstmt.executeQuery();
+			Member member; 
+			
+			while(result.next())
+			{
+				int Id=result.getInt("memberId");
+				String memberName=result.getString("memberId");
+				String accountOpenDate=result.getString("memberId");
+				String membershipType=result.getString("memberId");
+				double feesPaid=result.getDouble("memberId");
+				int maxBookAllowed=result.getInt("memberId");
+				double penalty=result.getDouble("memberId");
+				
+				if(penalty>0)
+				{
+					member=new Member(Id,memberName,accountOpenDate,membershipType,
+							feesPaid,maxBookAllowed,penalty);
+					
+					this.memberList.add(member);
+				}
+				
+				
+			}
+			
+			Collections.sort(memberList, Member.MemberPenaltyComparator);
+			
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return this.memberList;
+		
+		
+		
 	}
 
-	@Override
-	public List<Member> findDescendingPenalty() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

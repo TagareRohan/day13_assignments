@@ -1,5 +1,7 @@
 package com.training.entity;
 
+import java.util.Comparator;
+
 public class Member {
 
 	private int memberId;
@@ -142,6 +144,23 @@ public class Member {
 		return true;
 	}
 	
-	
-	
+	public static Comparator<Member> MemberPenaltyComparator = new Comparator<Member>() {
+
+		public int compare(Member m1, Member m2) {
+		   Double penalty1 = m1.getPenalty();
+		   Double penalty2 = m2.getPenalty();
+
+		   //ascending order
+		   return (int) (penalty1-penalty2);
+
+		   //descending order
+		   //return StudentName2.compareTo(StudentName1);
+	}
+	};
 }
+
+		
+	
+	
+	
+

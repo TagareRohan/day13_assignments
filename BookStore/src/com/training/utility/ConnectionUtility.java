@@ -25,6 +25,7 @@ public class ConnectionUtility {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			//DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
 			
 			String derbyURL = "jdbc:derby:SampleDB;create=true";
 			
