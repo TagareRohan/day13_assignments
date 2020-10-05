@@ -14,17 +14,12 @@ public class ConnectionUtility {
 		
 		try {
 			try {
-				Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
-			} catch (InstantiationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 			//DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
 			
 			String derbyURL = "jdbc:derby:SampleDB;create=true";

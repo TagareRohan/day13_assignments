@@ -71,6 +71,15 @@ public class BookServlet extends HttpServlet {
 			dispatcher=request.getRequestDispatcher("updateMember.jsp");
 			dispatcher.forward(request, response);
 		}
+		else if(optionForm.equals("Penalty"))
+		{
+			List<Member> memberList=store.findAscendingPenalty();
+			
+			request.setAttribute("result",memberList);
+			
+			dispatcher=request.getRequestDispatcher("result.jsp");
+			dispatcher.forward(request, response);
+		}
 		
 		String formSubmit=request.getParameter("submit");
 		
